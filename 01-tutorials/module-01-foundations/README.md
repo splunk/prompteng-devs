@@ -31,4 +31,4 @@ Approximately 20 minutes
 ### Next Steps
 After completing this module:
 1. Practice with [Module 1 exercises](../../02-exercises/hands-on/) 
-2. Continue to [Module 2: Core Prompting Techniques](../module-02-core-prompting-techniques/)
+2. Continue to [Module 2: Core Prompting Techniques](../module-02-fundamentals/)
