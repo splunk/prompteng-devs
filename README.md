@@ -73,13 +73,6 @@ $EDITOR .env
 
 Rename `.env-default` to `.env` and edit the values to match your environment (e.g., API keys or tokens required by your workflow). Ensure `.env` is present before running notebooks that depend on environment variables.
 
-- **Launch the notebook (Optional)**:
-
-```bash
-jupyter lab
-# or
-jupyter notebook
-```
 
 You can also open the folder directly in VS Code or Cursor and use their built-in notebook support. When prompted for a kernel, select the interpreter from `.venv`.
 
@@ -87,7 +80,7 @@ You can also open the folder directly in VS Code or Cursor and use their built-i
 
 ### Directory Structure Overview
 ```
-prompt-eng-for-devs/
+prompteng-devs/
 ├── 01-tutorials/           # Complete learning modules
 │   ├── module-01-foundations/
 │   ├── module-02-fundamentals/  

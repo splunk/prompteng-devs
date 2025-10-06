@@ -8,7 +8,7 @@ Python implementation of a GitHub Copilot API wrapper that provides OpenAI-compa
 ### Prerequisites
 
 - Python 3.10 or higher
-- GitHub account with Copilot access [How to apply](./Apply_Github_Copilot.en.md)
+- GitHub account with Copilot access
 - Internet connection for authentication, requires normal access to:
    - **Individual**: Default, uses `api.individual.githubcopilot.com`
    - **Business**: Uses `api.business.githubcopilot.com`
