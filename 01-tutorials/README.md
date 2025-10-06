@@ -6,7 +6,6 @@ This directory contains comprehensive tutorials that teach the fundamentals of p
 
 ### Core Modules
 
-- **[prompt-engineering-for-developers.ipynb](./prompt-engineering-for-developers.ipynb)** - Complete course material with all modules in one comprehensive notebook
 - **[module-01-foundations/](./module-01-foundations/)** - Course introduction, environment setup, and prompt anatomy
 - **[module-02-fundamentals/](./module-02-fundamentals/)** - Core prompting techniques: clear instructions, personas, delimiters, reasoning
 - **[module-03-applications/](./module-03-applications/)** - Software engineering applications: code quality, testing, debugging, API integration
@@ -41,7 +40,6 @@ This directory contains comprehensive tutorials that teach the fundamentals of p
 ### Module 4: Integration (10 min)
 - Custom command creation for AI assistants
 - Platform-specific integration patterns
-- Team adoption and workflow design
 
 ## Next Steps
 
