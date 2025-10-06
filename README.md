@@ -37,7 +37,7 @@ Production-ready patterns and implementation examples:
 - **Python 3.8+** and package manager (uv recommended)
 - **IDE** with notebook support (VS Code or Cursor)
 - **API Access** to one of:
-  - GitHub Copilot (recommended for beginners)
+  - GitHub Copilot (recommended)
   - CircuIT APIs
   - OpenAI API key
 
@@ -57,7 +57,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 pip install uv
 
 # Setup and install dependencies
-cd prompt-eng-for-devs
+cd prompteng-devs
 uv venv .venv
 source .venv/bin/activate
 uv pip install --upgrade pip
@@ -132,7 +132,6 @@ By course completion, you'll have:
 - ✅ **Working Development Environment** with AI assistant integration
 - ✅ **Prompt Engineering Toolkit** with reusable patterns and commands  
 - ✅ **Production-Ready Workflows** for code quality, debugging, and API integration
-- ✅ **Team Adoption Plan** with standards, training, and success metrics
 
 ## Contributing
 
