@@ -49,32 +49,41 @@ Use uv to manage dependencies:
 
 [uv](https://github.com/astral-sh/uv) is a fast Python package installer and resolver.
 
+> Note: To use the Splunk hosted PyPi repository, use the following command:
+>  ```bash
+>  brew upgrade okta-artifactory-login
+>  okta-artifactory-login -t pypi
+>  ```
+
 ```bash
 # Install uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Alternative: Install using pip
 pip install uv
-
-# Setup and install dependencies
-cd prompteng-devs
-uv venv .venv
-source .venv/bin/activate
-uv pip install --upgrade pip
-uv sync -r requirements.txt
 ```
 
-- **Configure environment variables**:
 
 ```bash
-cp .env-default .env
+# Setup and install dependencies
+cd prompteng-devs
+uv venv .venv --seed
+source .venv/bin/activate
+uv pip install ipykernel
+```
+
+**Configure environment variables**:
+
+```bash
+cp .env-example .env
 $EDITOR .env
 ```
 
-Rename `.env-default` to `.env` and edit the values to match your environment (e.g., API keys or tokens required by your workflow). Ensure `.env` is present before running notebooks that depend on environment variables.
+Rename `.env-example` to `.env` and edit the values to match your environment (e.g., API keys or tokens required by your workflow). Ensure `.env` is present before running notebooks that depend on environment variables.
 
 
-You can also open the folder directly in VS Code or Cursor and use their built-in notebook support. When prompted for a kernel, select the interpreter from `.venv`.
+You can also open the folder directly in VS Code or Cursor and use their built-in notebook support. 
+When prompted for a kernel, select the interpreter from `.venv`.
 
 ## Navigation & Usage
 
