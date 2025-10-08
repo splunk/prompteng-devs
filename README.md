@@ -22,41 +22,25 @@ cd prompteng-devs
 
 ### 🎯 Recommended Learning Workflow
 
-<div style="background:#f8f9fa; border-radius:8px; padding:18px 22px; margin-bottom:18px; border:1px solid #e0e0e0; box-shadow:0 1px 4px #0001">
+> **📚 For Each Module:**
 
-<div style="font-weight:700; font-size:1.2em; color:#1a202c; margin-bottom:16px">📚 For Each Module:</div>
+#### **Step 1: 📖 Read the Module**
+- Open the module's `README.md` file to understand learning objectives and prerequisites
 
-<div style="display:flex; align-items:center; margin:10px 0; font-size:1em">
-<span style="background:#3b82f6; color:white; padding:6px 10px; border-radius:12px; font-weight:700; margin-right:14px; font-size:0.9em">1</span>
-<span style="font-weight:600; color:#1a202c">Read the module's <code style="background:#e2e8f0; color:#2d3748; padding:3px 8px; border-radius:4px; font-weight:600">README.md</code></span>
-</div>
+#### **Step 2: 🚀 Launch the Notebook** 
+- Open the `.ipynb` notebook file to begin the interactive tutorial
 
-<div style="display:flex; align-items:center; margin:10px 0; font-size:1em">
-<span style="background:#10b981; color:white; padding:6px 10px; border-radius:12px; font-weight:700; margin-right:14px; font-size:0.9em">2</span>
-<span style="font-weight:600; color:#1a202c">Open the <code style="background:#e2e8f0; color:#2d3748; padding:3px 8px; border-radius:4px; font-weight:600">.ipynb</code> notebook</span>
-</div>
+#### **Step 3: 💻 Complete All Cells**
+- Run through each cell sequentially from top to bottom
 
-<div style="display:flex; align-items:center; margin:10px 0; font-size:1em">
-<span style="background:#f59e0b; color:white; padding:6px 10px; border-radius:12px; font-weight:700; margin-right:14px; font-size:0.9em">3</span>
-<span style="font-weight:600; color:#1a202c">Complete all cells</span>
-</div>
+#### **Step 4: 🏃‍♀️ Practice Exercises**
+- Complete the hands-on exercises to reinforce learning
 
-<div style="display:flex; align-items:center; margin:10px 0; font-size:1em">
-<span style="background:#8b5cf6; color:white; padding:6px 10px; border-radius:12px; font-weight:700; margin-right:14px; font-size:0.9em">4</span>
-<span style="font-weight:600; color:#1a202c">Practice exercises</span>
-</div>
+#### **Step 5: 📊 Self-Assess**
+- Use the competency matrix in the notebook to track your progress
 
-<div style="display:flex; align-items:center; margin:10px 0; font-size:1em">
-<span style="background:#ef4444; color:white; padding:6px 10px; border-radius:12px; font-weight:700; margin-right:14px; font-size:0.9em">5</span>
-<span style="font-weight:600; color:#1a202c">Self-assess with competency matrix</span>
-</div>
-
-<div style="display:flex; align-items:center; margin:10px 0; font-size:1em">
-<span style="background:#6b7280; color:white; padding:6px 10px; border-radius:12px; font-weight:700; margin-right:14px; font-size:0.9em">6</span>
-<span style="font-weight:600; color:#1a202c">Move to next module</span>
-</div>
-
-</div>
+#### **Step 6: ➡️ Next Module**
+- Move to the next module and repeat the process
 
 **📈 Track Progress**: Use the competency matrix in each notebook  
 **🚀 Apply Skills**: Use real-world examples after completing all modules
