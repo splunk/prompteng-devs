@@ -18,9 +18,7 @@ cd prompteng-devs
 
 ---
 
-## 📚 Learning Path
-
-### 🎯 Recommended Learning Workflow
+## 🎯 Recommended Learning Workflow
 
 > **📚 For Each Module:**
 
@@ -47,23 +45,6 @@ cd prompteng-devs
 
 💡 **Tip**: Each module directory contains a `README.md` file explaining what you'll learn and how to get started.
 
-### 1. **Interactive Tutorials** - Learn the fundamentals
-- **[Module 1: Foundations](./01-tutorials/module-01-foundations/)** - Interactive notebook (`.ipynb`) with environment setup & prompt anatomy (20 min)
-- **[Module 2: Core Techniques](./01-tutorials/module-02-fundamentals/)** - Interactive notebook (`.ipynb`) with instructions, personas, reasoning (30 min)  
-- **[Module 3: Applications](./01-tutorials/module-03-applications/)** - Interactive notebook (`.ipynb`) with code quality, testing, debugging (30 min)
-- **[Module 4: Integration](./01-tutorials/module-04-integration/)** - Interactive notebook (`.ipynb`) with custom commands & AI assistants (10 min)
-
-### 2. **Practice** - Reinforce learning
-- **[Hands-on Exercises](./02-exercises/hands-on/)** - Complete after each module to reinforce concepts
-- **[Solutions](./02-exercises/solutions/)** - Reference implementations
-- **Self-Assessment** - Use the competency matrix in each module to track your progress
-
-### 3. **Apply** - Real-world patterns
-- **[Code Quality](./03-examples/code-quality/)** - Refactoring & modernization
-- **[Debugging](./03-examples/debugging/)** - Incident investigation & resolution
-- **[API Integration](./03-examples/api-integration/)** - Client generation & error handling
-- **[Custom Commands](./03-examples/custom-commands/)** - Reusable templates
-
 ---
 
 ## ⚡ Quick Setup
@@ -89,6 +70,26 @@ cp .env-example .env
 **Splunk users**: Run `okta-artifactory-login -t pypi` before installing dependencies.
 
 ---
+
+## 📚 Learning Path
+
+### 1. **Interactive Tutorials** - Learn the fundamentals
+- **[Module 1: Foundations](./01-tutorials/module-01-foundations/)** - Interactive notebook (`.ipynb`) with environment setup & prompt anatomy (20 min)
+- **[Module 2: Core Techniques](./01-tutorials/module-02-fundamentals/)** - Interactive notebook (`.ipynb`) with instructions, personas, reasoning (30 min)  
+- **[Module 3: Applications](./01-tutorials/module-03-applications/)** - Interactive notebook (`.ipynb`) with code quality, testing, debugging (30 min)
+- **[Module 4: Integration](./01-tutorials/module-04-integration/)** - Interactive notebook (`.ipynb`) with custom commands & AI assistants (10 min)
+
+### 2. **Practice** - Reinforce learning
+- **[Hands-on Exercises](./02-exercises/hands-on/)** - Complete after each module to reinforce concepts
+- **[Solutions](./02-exercises/solutions/)** - Reference implementations
+- **Self-Assessment** - Use the competency matrix in each module to track your progress
+
+### 3. **Apply** - Real-world patterns
+- **[Code Quality](./03-examples/code-quality/)** - Refactoring & modernization
+- **[Debugging](./03-examples/debugging/)** - Incident investigation & resolution
+- **[API Integration](./03-examples/api-integration/)** - Client generation & error handling
+- **[Custom Commands](./03-examples/custom-commands/)** - Reusable templates
+
 
 ## 🎯 What You'll Build
 
