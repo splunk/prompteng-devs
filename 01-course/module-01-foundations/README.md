@@ -8,7 +8,7 @@ This foundational module introduces you to prompt engineering concepts and gets 
 By completing this module, you will be able to:
 - ✅ Set up a working development environment with AI assistant access
 - ✅ Identify and apply the four core elements of effective prompts
-- ✅ Write basic prompts for review coding
+- ✅ Write basic prompts for reviewing code
 - ✅ Iterate and refine prompts based on output quality
 
 ### Getting Started
