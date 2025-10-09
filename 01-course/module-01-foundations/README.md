@@ -5,10 +5,10 @@
 This foundational module introduces you to prompt engineering concepts and gets your development environment configured for hands-on learning.
 
 ### Learning Objectives
-By completing this module, you will:
+By completing this module, you will be able to:
 - ✅ Set up a working development environment with AI assistant access
 - ✅ Identify and apply the four core elements of effective prompts
-- ✅ Write basic prompts for code improvement and documentation
+- ✅ Write basic prompts for review coding
 - ✅ Iterate and refine prompts based on output quality
 
 ### Getting Started
