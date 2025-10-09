@@ -41,4 +41,4 @@ Approximately 20 minutes
 ### Next Steps
 After completing this module:
 1. Practice with the integrated exercises in this module 
-2. Continue to [Module 2: Core Prompting Techniques](../module-03-applications/)
+2. Continue to [Module 3: Application in Software Engineering](../module-03-applications/)
