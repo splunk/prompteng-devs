@@ -7,15 +7,16 @@ This module covers the essential prompt engineering techniques that form the fou
 ### Learning Objectives
 By completing this module, you will be able to:
 
-- ✅ Apply six core prompt engineering techniques to real coding scenarios
-- ✅ Transform vague requests into specific, actionable prompts
-- ✅ Structure complex multi-file refactoring tasks systematically
-- ✅ Guide AI assistants through systematic code analysis
+- ✅ Apply eight core prompt engineering techniques to real coding scenarios
 - ✅ Write clear instructions with specific constraints and requirements
-- ✅ Use role prompting to leverage specialized engineering expertise
-- ✅ Organize complex inputs using delimiters and structured formatting
-- ✅ Implement step-by-step reasoning for systematic problem-solving
-- ✅ Provide examples and reference text to improve AI accuracy
+- ✅ Use role prompting to transform AI into specialized domain experts
+- ✅ Organize complex inputs using XML delimiters and structured formatting
+- ✅ Teach AI your preferred styles using few-shot examples
+- ✅ Implement chain-of-thought reasoning for systematic problem-solving
+- ✅ Ground AI responses in reference texts with proper citations
+- ✅ Break complex tasks into sequential workflows using prompt chaining
+- ✅ Create evaluation rubrics and self-critique loops with LLM-as-Judge
+- ✅ Separate reasoning from clean final outputs using inner monologue
 
 ### Getting Started
 
@@ -31,7 +32,15 @@ By completing this module, you will be able to:
 - **[module2.ipynb](./module2.ipynb)** - Complete module 2 tutorial notebook
 
 ### Time Required
-Approximately 20 minutes
+Approximately 90-120 minutes (1.5-2 hours)
+
+**Time Breakdown:**
+- Setup and introduction: ~10 minutes
+- 8 core tactics with examples: ~70 minutes
+- Hands-on practice activities: ~20-30 minutes
+- Progress tracking: ~5 minutes
+
+💡 **Tip:** You can complete this module in one session or break it into multiple shorter sessions. Each tactic is self-contained, making it easy to pause and resume.
 
 ### Prerequisites
 - Python 3.8+ installed
