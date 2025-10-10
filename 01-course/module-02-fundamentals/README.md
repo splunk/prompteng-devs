@@ -4,59 +4,50 @@
 
 This module covers the essential prompt engineering techniques that form the foundation of effective AI assistant interaction for software development.
 
-### What You'll Learn
-- Clear instruction writing and specification techniques
-- Role prompting and persona adoption for specialized expertise
-- Using delimiters and structured inputs for complex tasks
-- Step-by-step reasoning and few-shot learning patterns
-- Providing reference text to reduce hallucinations
+### Learning Objectives
+By completing this module, you will be able to:
+
+- ✅ Apply eight core prompt engineering techniques to real coding scenarios
+- ✅ Write clear instructions with specific constraints and requirements
+- ✅ Use role prompting to transform AI into specialized domain experts
+- ✅ Organize complex inputs using XML delimiters and structured formatting
+- ✅ Teach AI your preferred styles using few-shot examples
+- ✅ Implement chain-of-thought reasoning for systematic problem-solving
+- ✅ Ground AI responses in reference texts with proper citations
+- ✅ Break complex tasks into sequential workflows using prompt chaining
+- ✅ Create evaluation rubrics and self-critique loops with LLM-as-Judge
+- ✅ Separate reasoning from clean final outputs using inner monologue
+
+### Getting Started
+
+**First time here?** If you haven't set up your development environment yet, follow the [Quick Setup guide](../../README.md#-quick-setup) in the main README first.
+
+**Ready to start?**
+1. **Open the tutorial notebook**: Click on [module2.ipynb](./module2.ipynb) to start the interactive tutorial
+2. **Install dependencies**: Run the "Install Required Dependencies" cell in the notebook
+3. **Follow the notebook**: Work through each cell sequentially - the notebook will guide you through setup and exercises
+4. **Complete exercises**: Practice the hands-on activities as you go
 
 ### Module Contents
 - **[module2.ipynb](./module2.ipynb)** - Complete module 2 tutorial notebook
 
-### Core Techniques Covered
-
-#### 1. Clear Instructions & Specifications
-- Writing precise, unambiguous prompts
-- Specifying constraints, formats, and requirements
-- Handling edge cases and error conditions
-
-#### 2. Role Prompting & Personas
-- Adopting specialized engineering roles (security, performance, QA)
-- Leveraging domain expertise through persona prompting
-- Combining multiple perspectives for comprehensive analysis
-
-#### 3. Delimiters & Structured Inputs
-- Organizing complex multi-file inputs using headers and XML-like tags
-- Separating requirements, context, and code cleanly
-- Structuring outputs for consistency and parsability
-
-#### 4. Step-by-Step Reasoning
-- Guiding systematic analysis through explicit steps
-- Building chains of reasoning for complex problems
-- Creating reproducible analytical workflows
-
-#### 5. Few-Shot Learning & Examples
-- Providing high-quality examples to establish patterns
-- Teaching consistent formatting and style
-- Demonstrating edge case handling
-
-### Learning Objectives
-By completing this module, you will:
-- ✅ Master the six core prompt engineering techniques
-- ✅ Be able to transform vague requests into specific, actionable prompts
-- ✅ Know how to structure complex multi-file refactoring tasks
-- ✅ Understand how to guide AI assistants through systematic analysis
-- ✅ Have practical experience with each technique applied to code
-
 ### Time Required
-Approximately 30 minutes
+Approximately 90-120 minutes (1.5-2 hours)
+
+**Time Breakdown:**
+- Setup and introduction: ~10 minutes
+- 8 core tactics with examples: ~70 minutes
+- Hands-on practice activities: ~20-30 minutes
+- Progress tracking: ~5 minutes
+
+💡 **Tip:** You can complete this module in one session or break it into multiple shorter sessions. Each tactic is self-contained, making it easy to pause and resume.
 
 ### Prerequisites
-- Completion of [Module 1: Foundations](../module-01-foundations/)
-- Working development environment with AI assistant access
+- Python 3.8+ installed
+- IDE with notebook support (VS Code or Cursor recommended)
+- API access to GitHub Copilot, CircuIT, or OpenAI
 
 ### Next Steps
 After completing this module:
-1. Practice with the integrated exercises in this module
-2. Continue to [Module 3: Applications](../module-03-applications/)
+1. Practice with the integrated exercises in this module 
+2. Continue to [Module 3: Application in Software Engineering](../module-03-applications/)
