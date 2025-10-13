@@ -13,7 +13,9 @@ By completing this module, you will be able to:
 
 ### Getting Started
 
-**First time here?** If you haven't set up your development environment yet, follow the [Quick Setup guide](../../README.md#-quick-setup) in the main README first.
+**First time here?** 
+- If you haven't set up your development environment yet, follow the [Quick Setup guide](../../README.md#-quick-setup) in the main README first
+- **New to Jupyter notebooks?** Read [About Jupyter Notebooks](../../README.md#-about-jupyter-notebooks) to understand how notebooks work and where code executes
 
 **Ready to start?**
 1. **Open the tutorial notebook**: Click on [module1.ipynb](./module1.ipynb) to start the interactive tutorial
