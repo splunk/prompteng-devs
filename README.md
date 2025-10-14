@@ -169,7 +169,7 @@ Each module notebook has **two sections** for tracking progress:
 - ✅ **Prompt Engineering Toolkit** with reusable patterns and commands  
 - ✅ **Production-Ready Workflows** for code quality, debugging, and API integration
 
-**Total Time**: ~90 minutes (can be split into 3×30min sessions)
+**Total Time**: ~300 minutes (~4-5 hours)
 
 ---
 
