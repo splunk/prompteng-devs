@@ -1,4 +1,4 @@
-# 03-examples: Real-World Use Cases & Implementation Patterns
+# 02-implementation-examples: Real-World Use Cases & Implementation Patterns
 
 This directory provides practical implementation examples demonstrating how to apply prompt engineering capabilities to solve real business problems and common software development challenges.
 
@@ -49,8 +49,8 @@ Each use case provides:
 ## Getting Started
 
 ### Prerequisites
-- Completion of [01-tutorials/](../01-tutorials/) modules 1-3
-- Practical experience with [02-exercises/](../02-exercises/) activities
+- Completion of [01-course/](../01-course/) modules 1-3
+- Practical experience with integrated exercises in the course modules
 - Understanding of your target AI assistant platform (GitHub Copilot, Claude Code, etc.)
 
 ### Selection Guide
