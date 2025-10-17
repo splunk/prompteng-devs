@@ -244,13 +244,13 @@ def test_activity(activity_file, test_code=None, variables=None, auto_save=True)
     Test your activity template directly from the .md file.
     
     IMPORTANT: Complete your activity template BEFORE running this function!
-    - Open the activity file (e.g., 'activities/activity-3.1-code-review.md')
+    - Open the activity file (e.g., 'activities/activity-3.2-code-review.md')
     - Replace all <!-- TODO: ... --> comments with your actual content
     - Fill in role, guidelines, tasks, and output format sections
     - Save the file, then run this test function
     
     Args:
-        activity_file: Path to your activity file (e.g., 'activities/activity-3.1-code-review.md')
+        activity_file: Path to your activity file (e.g., 'activities/activity-3.2-code-review.md')
         test_code: Optional code sample to review (uses example from file if not provided)
         variables: Optional dict of template variables (e.g., {'tech_stack': 'Python', 'repo_name': 'my-app'})
         auto_save: If True, prompts to save result back to activity file
@@ -428,46 +428,62 @@ def list_activities():
             print()
     
     print("="*70)
-    print("💡 Usage: test_activity('activities/activity-3.1-code-review.md')")
+    print("💡 Usage: test_activity('activities/activity-3.2-code-review.md')")
 
 
 # Quick access functions for each activity
-def test_activity_3_1(test_code=None, variables=None):
-    """
-    Quick helper for Activity 3.1: Comprehensive Code Review
-    
-    IMPORTANT: Complete your template in the activity file BEFORE running this!
-    """
-    return test_activity('activities/activity-3.1-code-review.md', test_code=test_code, variables=variables)
-
-
-def test_activity_3_1_solution(test_code=None, variables=None):
-    """
-    Test the provided solution for Activity 3.1: Comprehensive Code Review
-    
-    Use this to see how the solution template works before building your own.
-    Note: auto_save is disabled for solution files to keep them as clean references.
-    """
-    return test_activity('solutions/activity-3.1-code-review-solution.md', test_code=test_code, variables=variables, auto_save=False)
-
-
 def test_activity_3_2(test_code=None, variables=None):
     """
-    Quick helper for Activity 3.2: Test Generation
+    Quick helper for Activity 3.2: Comprehensive Code Review
     
     IMPORTANT: Complete your template in the activity file BEFORE running this!
     """
-    return test_activity('activities/activity-3.2-test-generation.md', test_code=test_code, variables=variables)
+    return test_activity('activities/activity-3.2-code-review.md', test_code=test_code, variables=variables)
 
 
 def test_activity_3_2_solution(test_code=None, variables=None):
     """
-    Test the provided solution for Activity 3.2: Test Generation
+    Test the provided solution for Activity 3.2: Comprehensive Code Review
     
     Use this to see how the solution template works before building your own.
     Note: auto_save is disabled for solution files to keep them as clean references.
     """
-    return test_activity('solutions/activity-3.2-test-generation-solution.md', test_code=test_code, variables=variables, auto_save=False)
+    return test_activity('solutions/activity-3.2-code-review-solution.md', test_code=test_code, variables=variables, auto_save=False)
+
+
+def test_activity_3_3(test_code=None, variables=None):
+    """
+    Quick helper for Activity 3.3: Test Generation
+    
+    IMPORTANT: Complete your template in the activity file BEFORE running this!
+    """
+    return test_activity('activities/activity-3.3-test-generation.md', test_code=test_code, variables=variables)
+
+
+def test_activity_3_3_solution(test_code=None, variables=None):
+    """
+    Test the provided solution for Activity 3.3: Test Generation
+    
+    Use this to see how the solution template works before building your own.
+    Note: auto_save is disabled for solution files to keep them as clean references.
+    """
+    return test_activity('solutions/activity-3.3-test-generation-solution.md', test_code=test_code, variables=variables, auto_save=False)
+
+
+def test_activity_3_1(test_code=None, variables=None):
+    """
+    Backwards-compatible helper for the former Activity 3.1 (now Activity 3.2).
+    """
+    print("⚠️ Activity 3.1 has been renumbered to Activity 3.2. Routing to test_activity_3_2().")
+    return test_activity_3_2(test_code=test_code, variables=variables)
+
+
+def test_activity_3_1_solution(test_code=None, variables=None):
+    """
+    Backwards-compatible helper for the former Activity 3.1 solution (now Activity 3.2).
+    """
+    print("⚠️ Activity 3.1 solution has been renumbered to Activity 3.2. Routing to test_activity_3_2_solution().")
+    return test_activity_3_2_solution(test_code=test_code, variables=variables)
 
 
 # ============================================

@@ -1,8 +1,8 @@
-# Activity 3.1 Solution: Comprehensive Code Review Template
+# Activity 3.2 Solution: Comprehensive Code Review Template
 
 **⏱️ Completion Time:** Reference solution  
 **🎯 Focus:** Multi-dimensional code review (security, performance, quality, best practices)  
-**📚 Ready to Test:** Use `test_activity_3_1_solution()` with this file path
+**📚 Ready to Test:** Use `test_activity_3_2_solution()` with this file path
 
 ---
 
@@ -18,7 +18,7 @@ from setup_utils import test_activity
 
 # Test the solution template
 test_activity(
-    'solutions/activity-3.1-code-review-solution.md',
+    'solutions/activity-3.2-code-review-solution.md',
     test_code = """
 + import hashlib
 + import time
@@ -67,7 +67,7 @@ test_activity(
 
 ```xml
 /*******************************************************************************
- *  SOLUTION TEMPLATE FOR ACTIVITY 3.1
+ *  SOLUTION TEMPLATE FOR ACTIVITY 3.2
  *  
  *  This is a complete, production-ready comprehensive code review template.
  *  Focus areas:

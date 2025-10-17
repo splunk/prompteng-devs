@@ -1,4 +1,4 @@
-# Activity 3.1: Build Your Own Code Review Template
+# Activity 3.2: Build Your Own Code Review Template
 
 **⏱️ Time Required:** 30-40 minutes  
 **🎯 Difficulty:** Intermediate  
@@ -69,7 +69,7 @@ Any reusable {{variables}} you want:
 1. Scroll to the template block below and edit only the content between `<!-- TEMPLATE START -->` and `<!-- TEMPLATE END -->`.
 2. Replace placeholder text with your own role, guidelines, tasks, and output format.
 3. Stick with the XML shell shown, or switch the code fence (e.g., to ````markdown) and rewrite it in structured Markdown—the tester will capture everything between the markers either way.
-4. Save the file, then open `3.2-code-review-automation.ipynb` and run `test_activity_3_1()` to check your work.
+4. Save the file, then open `3.2-code-review-automation.ipynb` and run `test_activity_3_2()` to check your work.
 
 **Helpful reminders**
 - Leave the HTML comments (`<!-- TEMPLATE START/END -->`) in place so the tester can find your template.
@@ -80,7 +80,7 @@ Any reusable {{variables}} you want:
 <details>
 <summary>❓ Why do I need those HTML comment markers? (Click to expand)</summary>
 
-The `<!-- TEMPLATE START -->` and `<!-- TEMPLATE END -->` markers tell the `test_activity_3_1()` function where your template begins and ends. They're invisible when markdown is rendered but essential for the auto-testing feature!
+The `<!-- TEMPLATE START -->` and `<!-- TEMPLATE END -->` markers tell the `test_activity_3_2()` function where your template begins and ends. They're invisible when markdown is rendered but essential for the auto-testing feature!
 
 </details>
 
@@ -144,7 +144,7 @@ Purpose: {{change_purpose}}
  *  
  *  Next step: Test it!
  *  Go to: 3.2-code-review-automation.ipynb
- *  Run: test_activity_3_1(test_code="...", variables={...})
+ *  Run: test_activity_3_2(test_code="...", variables={...})
  ******************************************************************************/
 ````
 
@@ -194,7 +194,7 @@ test_code = """
 +     return {"status": "ok", "session": SESSION_CACHE[username], "permissions": permissions}
 """
  
- test_activity_3_1(
+ test_activity_3_2(
      test_code=test_code,
      variables={
          'tech_stack': 'Python',
@@ -239,7 +239,7 @@ Before considering this activity complete, verify:
 
 ### Compare with Solution
 Once you're satisfied with your template, compare it with the official solution:  
-📖 [`solutions/activity-3.1-code-review-solution.md`](../solutions/activity-3.1-code-review-solution.md)
+📖 [`solutions/activity-3.2-code-review-solution.md`](../solutions/activity-3.2-code-review-solution.md)
 
 ### Keep Iterating
 - Save a copy of your finished template in your repo (for example, `prompts/code-review-template.xml`) so you can reuse and improve it.
