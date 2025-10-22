@@ -8,6 +8,7 @@ import openai
 import anthropic
 import os
 import re
+import json
 from pathlib import Path
 
 # ============================================
@@ -179,6 +180,8 @@ def get_chat_completion(messages, model=None, temperature=0.0):
     Generic function to get chat completion from any provider.
     Routes to the appropriate provider-specific function based on PROVIDER setting.
     """
+    # print(f"Using {PROVIDER.upper()} with {get_default_model()}")
+
     if PROVIDER.lower() == "claude":
         return get_claude_completion(messages, model, temperature)
     elif PROVIDER.lower() == "circuit":
@@ -217,9 +220,27 @@ def extract_template_from_activity(activity_file):
         if not file_path.exists():
             return None, f"❌ File not found: {activity_file}"
         
-        content = file_path.read_text()
+        if file_path.suffix == ".ipynb":
+            try:
+                notebook = json.loads(file_path.read_text())
+            except json.JSONDecodeError as e:
+                return None, f"❌ Error decoding notebook JSON: {e}"
+            
+            for cell in notebook.get("cells", []):
+                if cell.get("cell_type") != "markdown":
+                    continue
+                source = "".join(cell.get("source", []))
+                match = re.search(
+                    r'<!-- TEMPLATE START -->(.*?)<!-- TEMPLATE END -->',
+                    source,
+                    re.DOTALL
+                )
+                if match:
+                    template = match.group(1).strip()
+                    return template, None
+            return None, "⚠️ Template markers not found in notebook markdown cells. Make sure your template is between:\n   <!-- TEMPLATE START -->\n   <!-- TEMPLATE END -->"
         
-        # Extract template between markers
+        content = file_path.read_text()
         match = re.search(
             r'<!-- TEMPLATE START -->(.*?)<!-- TEMPLATE END -->',
             content,
@@ -228,9 +249,6 @@ def extract_template_from_activity(activity_file):
         
         if match:
             template = match.group(1).strip()
-            # Remove markdown code block markers if present
-            # template = re.sub(r'^```\w*\n', '', template)
-            # template = re.sub(r'\n```$', '', template)
             return template, None
         else:
             return None, "⚠️ Template markers not found. Make sure your template is between:\n   <!-- TEMPLATE START -->\n   <!-- TEMPLATE END -->"
@@ -468,6 +486,76 @@ def test_activity_3_3_solution(test_code=None, variables=None):
     Note: auto_save is disabled for solution files to keep them as clean references.
     """
     return test_activity('solutions/activity-3.3-test-generation-solution.md', test_code=test_code, variables=variables, auto_save=False)
+
+
+def get_refactor_judge_scenario():
+    """
+    Returns the complete scenario data for Activity 3.4 judge testing.
+    This keeps the notebook clean while providing all necessary test data.
+    """
+    return {
+        'service_name': 'Ledger API',
+        'refactor_brief': 'Refactor cache service to extract eviction policy while preserving metrics and alerts.',
+        'code_before': 'def get_session(key, cache, stats):\n    if key in cache:\n        stats[\'hits\'] += 1\n        return cache[key]\n    stats[\'misses\'] += 1\n    value = load_from_store(key)\n    if len(cache) > 5000:\n        evict_oldest(cache, stats)\n    cache[key] = value\n    stats[\'writes\'] += 1\n    return value',
+        'code_after': 'def get_session(key, cache, stats):\n    cached = cache.get(key)\n    if cached is not None:\n        stats[\'hits\'] += 1\n        return cached\n    stats[\'misses\'] += 1\n    value = load_from_store(key)\n    maybe_evict(cache, stats)\n    cache[key] = value\n    stats[\'writes\'] += 1\n    return value',
+        'refactor_goal': 'Reduce duplicate eviction logic, tighten cache branch handling, keep behaviour identical.',
+        'test_summary': 'pytest::tests/cache/test_session.py::TestCacheSession PASSED; contract-suite pending',
+        'analysis_findings': 'ruff: clean; bandit: clean; mypy: missing return type for maybe_evict',
+        'critical_regression': 'Eviction stats update removed for rare eviction branch',
+        'security_findings': 'None observed',
+        'escalation_channel': '#refactor-review',
+        'ai_refactor_output': '''Refactored code extracts eviction logic into _ensure_cache_capacity helper.
+
+Key changes:
+- Extracted eviction condition into helper function
+- Replaced direct key lookup with cache.get()
+- Added docstrings clarifying behavior
+- Preserved all stats counter mutations
+
+Regression risks:
+- Eviction semantics must preserve > 5000 threshold (not >=)
+- Cache hit path: only stats['hits'] increments
+- Cache miss: stats['misses'] and stats['writes'] both increment
+- Exception path: stats['writes'] must not increment if load_from_store fails
+
+Suggested test cases:
+- test_hit_increments_hits_only()
+- test_miss_increments_misses_and_writes()
+- test_no_eviction_at_threshold()
+- test_eviction_when_exceeding_threshold()
+- test_exception_does_not_write()
+'''
+    }
+
+
+def test_activity_3_4(test_code=None, variables=None):
+    """
+    Quick helper for Activity 3.4: LLM-as-Judge Quality Gate.
+    
+    IMPORTANT: Complete your template in the activity notebook BEFORE running this!
+    
+    Usage:
+        # Use default scenario
+        test_activity_3_4(variables=get_refactor_judge_scenario())
+        
+        # Or provide your own
+        test_activity_3_4(variables={...})
+    """
+    return test_activity('activities/activity-3.4-llm-as-judge-evaluation.md', test_code=test_code, variables=variables)
+
+
+def test_activity_3_4_solution(test_code=None, variables=None):
+    """
+    Test the provided solution for Activity 3.4: LLM-as-Judge Evaluation Template.
+    
+    Use this to see the reference implementation before finalising your own.
+    Note: auto_save is disabled for solution files so they remain untouched.
+    
+    Usage:
+        # Use default scenario
+        test_activity_3_4_solution(variables=get_refactor_judge_scenario())
+    """
+    return test_activity('solutions/activity-3.4-llm-as-judge-evaluation-solution.md', test_code=test_code, variables=variables, auto_save=False)
 
 
 def test_activity_3_1(test_code=None, variables=None):
