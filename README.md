@@ -52,21 +52,26 @@ cd prompteng-devs
 
 ```bash
 # 1. Clone the repository
-git clone git@github.com:splunk/prompteng-devs.git
+git clone https://github.com/splunk/prompteng-devs.git
 cd prompteng-devs
 
 # 2. Install dependencies
-curl -LsSf https://astral.sh/uv/install.sh | sh
-uv venv .venv --seed
+python -m venv .venv
 source .venv/bin/activate
-uv pip install ipykernel
+pip install ipykernel
+
+# Alternative: Using uv (faster)
+# curl -LsSf https://astral.sh/uv/install.sh | sh
+# uv venv .venv --seed
+# source .venv/bin/activate
+# uv pip install ipykernel
 
 # 3. Configure environment
 cp .env-example .env
 # Edit .env with your API keys
 ```
 
-**Splunk users**: Run `okta-artifactory-login -t pypi` before installing dependencies.
+**Splunk users**: Run `okta-artifactory-login -t pypi` before installing dependencies. See [Artifactory PyPI setup guide](https://cloud-automation.splunkdev.page/ci-cd/artifactory/ephemeral-credentials-examples/user-guide/pypi/) for installation instructions and access to Splunk's internal PyPI packages.
 
 ---
 
