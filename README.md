@@ -153,7 +153,7 @@ Each module notebook has **two sections** for tracking progress:
 
 ### 1. **Interactive Course** - Learn the fundamentals
 - **[Module 1: Foundations](./01-course/module-01-foundations/)** - Interactive notebook (`.ipynb`) with environment setup & prompt anatomy (20 min)
-- **[Module 2: Core Techniques](./01-course/module-02-fundamentals/)** - Interactive notebook (`.ipynb`) with role prompting, structured inputs, few-shot examples, chain-of-thought reasoning, reference citations, prompt chaining, and evaluation techniques (90-120 min)  
+- **[Module 2: Core Techniques](./01-course/module-02-fundamentals/)** - Interactive notebooks (`.ipynb`) covering role prompting, structured inputs, few-shot examples, chain-of-thought reasoning, reference citations, prompt chaining, and evaluation techniques (90-120 min)  
 - **[Module 3: Applications](./01-course/module-03-applications/)** - Interactive notebook (`.ipynb`) with reusable prompt templates for code review, debugging, refactoring, and SDLC workflows (60 min)
 - **[Module 4: Integration](./01-course/module-04-integration/)** - Interactive notebook (`.ipynb`) with custom commands & AI assistants (30 min)
 
