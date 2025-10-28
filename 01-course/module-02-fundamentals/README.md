@@ -15,8 +15,8 @@ By completing this module, you will be able to:
 - ✅ Implement chain-of-thought reasoning for systematic problem-solving
 - ✅ Ground AI responses in reference texts with proper citations
 - ✅ Break complex tasks into sequential workflows using prompt chaining
+- ✅ Explore multiple solution paths simultaneously with tree of thoughts
 - ✅ Create evaluation rubrics and self-critique loops with LLM-as-Judge
-- ✅ Separate reasoning from clean final outputs using inner monologue
 
 ### Getting Started
 
@@ -32,7 +32,7 @@ By completing this module, you will be able to:
 - **[2.1-setup-and-foundations.ipynb](./2.1-setup-and-foundations.ipynb)** — environment setup, breakpoint workflows, and Tactic 0
 - **[2.2-roles-and-structure.ipynb](./2.2-roles-and-structure.ipynb)** — role prompting personas and structured input patterns
 - **[2.3-patterns-for-reasoning.ipynb](./2.3-patterns-for-reasoning.ipynb)** — few-shot exemplars, chain-of-thought, and reference citations
-- **[2.4-automation-and-evaluation.ipynb](./2.4-automation-and-evaluation.ipynb)** — prompt chaining, self-correction loops, and LLM-as-judge tactics
+- **[2.4-advanced-workflows.ipynb](./2.4-advanced-workflows.ipynb)** — prompt chaining, tree of thoughts exploration, and LLM-as-judge tactics
 - **[2.5-hands-on-practice.ipynb](./2.5-hands-on-practice.ipynb)** — unguided practice with automated evaluation and skill tracking
 
 ### Automated Evaluation System
@@ -56,7 +56,7 @@ Section 2.5 features an **AI-powered evaluation system** to help you master the 
 - **Activity 2.1** → Skills #1-4 (Role Prompting & Structured Inputs)
 - **Activity 2.2** → Skills #5-8 (Few-Shot & Chain-of-Thought)
 - **Activity 2.3** → Skills #9-12 (Reference Citations & Prompt Chaining)
-- **Activity 2.4** → Skills #13-16 (LLM-as-Judge & Inner Monologue)
+- **Activity 2.4** → Skills #13-16 (LLM-as-Judge & Tree of Thoughts)
 
 💡 **Tip:** Don't worry about perfect scores on the first try! Use the feedback to iterate and improve your prompts.
 

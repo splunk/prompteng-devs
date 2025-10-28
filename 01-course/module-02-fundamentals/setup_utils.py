@@ -374,17 +374,27 @@ def _calculate_traditional_metrics(
     metrics["role_indicators"] = role_found
     metrics["uses_role_prompting"] = len(role_found) > 0
 
-    # 6. Inner Monologue Detection
-    has_thinking_tags = "<thinking>" in prompt_text.lower()
-    has_output_tags = "<output>" in prompt_text.lower()
-    metrics["uses_inner_monologue"] = has_thinking_tags and has_output_tags
+    # 6. Tree of Thoughts Detection (multiple approaches/alternatives)
+    tot_keywords = ["approach a", "approach b", "approach c", "alternative", "option 1", "option 2", "multiple approaches", "different solutions"]
+    tot_tags = ["<approach_a>", "<approach_b>", "<approach_c>", "<option_1>", "<option_2>", "<alternative_"]
+    tot_found = [kw for kw in tot_keywords if kw in prompt_text.lower()]
+    tot_tags_found = [tag for tag in tot_tags if tag in prompt_text.lower()]
+    metrics["tot_keywords_found"] = tot_found + tot_tags_found
+    metrics["uses_tree_of_thoughts"] = len(tot_found) >= 2 or len(tot_tags_found) >= 2  # At least 2 approaches
 
-    # 7. Document Structure Detection (for citations)
+    # 7. LLM-as-Judge Detection (evaluation rubrics, scoring, weighted criteria)
+    judge_keywords = ["rubric", "evaluate", "score", "rate", "criteria", "weighted", "judge", "assessment", "compare", "0-10", "1-10"]
+    judge_found = [kw for kw in judge_keywords if kw in prompt_text.lower()]
+    has_percentages = "%" in prompt_text  # Weighted criteria like "40%", "30%"
+    metrics["judge_keywords_found"] = judge_found
+    metrics["uses_llm_as_judge"] = len(judge_found) >= 3 or (len(judge_found) >= 2 and has_percentages)
+
+    # 8. Document Structure Detection (for citations)
     has_doc_structure = "<documents>" in prompt_text.lower() or "<document>" in prompt_text.lower()
     has_source_tags = "<source>" in prompt_text.lower()
     metrics["uses_document_structure"] = has_doc_structure and has_source_tags
 
-    # 8. Prompt Length Analysis
+    # 9. Prompt Length Analysis
     total_chars = len(prompt_text)
     metrics["total_characters"] = total_chars
     metrics["complexity"] = "high" if total_chars > 1000 else "medium" if total_chars > 300 else "low"
@@ -437,6 +447,9 @@ def evaluate_prompt(
     role_indicators = metrics.get('role_indicators', [])
     complexity = str(metrics.get('complexity', 'unknown'))
 
+    tot_keywords = metrics.get('tot_keywords_found', [])
+    judge_keywords = metrics.get('judge_keywords_found', [])
+
     metrics_summary = f"""
 📏 TRADITIONAL EVAL METRICS (Objective Analysis)
 {'=' * 70}
@@ -450,7 +463,8 @@ def evaluate_prompt(
 - Few-shot examples: {metrics.get('example_count', 0)} examples {'✅' if metrics.get('uses_few_shot') else '❌'}
 - Chain-of-thought keywords: {', '.join(cot_keywords) if cot_keywords else 'None'} {'✅' if metrics.get('uses_cot') else '❌'}
 - Role indicators: {', '.join(role_indicators) if role_indicators else 'None'} {'✅' if metrics.get('uses_role_prompting') else '❌'}
-- Inner monologue tags: {'✅ Yes' if metrics.get('uses_inner_monologue') else '❌ No'}
+- Tree of Thoughts indicators: {', '.join(tot_keywords) if tot_keywords else 'None'} {'✅' if metrics.get('uses_tree_of_thoughts') else '❌'}
+- LLM-as-Judge indicators: {', '.join(judge_keywords) if judge_keywords else 'None'} {'✅' if metrics.get('uses_llm_as_judge') else '❌'}
 - Document structure: {'✅ Yes' if metrics.get('uses_document_structure') else '❌ No'}
 
 **Complexity:**
@@ -459,6 +473,26 @@ def evaluate_prompt(
 
 {'=' * 70}
 """
+
+    # Build tactic descriptions dynamically based on expected_tactics
+    tactic_descriptions = {
+        "Role Prompting": "Check for specific, relevant persona with clear expertise domain",
+        "Structured Inputs": "Check for meaningful organization and clear section boundaries",
+        "Few-Shot Examples": "Check for high-quality examples that teach the desired pattern",
+        "Chain-of-Thought": "Check for systematic reasoning instructions",
+        "Reference Citations": "Check for proper document structure and quote extraction",
+        "Prompt Chaining": "Check for multi-step workflow with clear dependencies",
+        "LLM-as-Judge": "Check for clear evaluation rubrics and weighted criteria",
+        "Tree of Thoughts": "Check for exploring multiple solution approaches/alternatives in parallel"
+    }
+
+    # Only include expected tactics in the evaluation criteria
+    criteria_list = []
+    for i, tactic in enumerate(expected_tactics, 1):
+        if tactic in tactic_descriptions:
+            criteria_list.append(f"{i}. **{tactic}**: {tactic_descriptions[tactic]}")
+
+    criteria_text = "\n".join(criteria_list)
 
     # STEP 3: LLM-as-Judge Evaluation (Subjective & Nuanced)
     evaluation_prompt = f"""You are an expert prompt engineering instructor evaluating a student's work.
@@ -478,21 +512,16 @@ def evaluate_prompt(
 <evaluation_criteria>
 The traditional metrics above show WHAT patterns exist. Your job as LLM-as-Judge is to evaluate HOW WELL they're implemented.
 
-Analyze whether the student successfully applied each expected tactic:
+Analyze whether the student successfully applied ONLY THE EXPECTED TACTICS listed above:
 
-1. **Role Prompting**: Check for specific, relevant persona with clear expertise domain
-2. **Structured Inputs**: Check for meaningful organization and clear section boundaries
-3. **Few-Shot Examples**: Check for high-quality examples that teach the desired pattern
-4. **Chain-of-Thought**: Check for systematic reasoning instructions
-5. **Reference Citations**: Check for proper document structure and quote extraction
-6. **Prompt Chaining**: Check for multi-step workflow with clear dependencies
-7. **LLM-as-Judge**: Check for clear evaluation rubrics and weighted criteria
-8. **Inner Monologue**: Check for proper separation of reasoning from final output
+{criteria_text}
+
+IMPORTANT: Only evaluate the tactics listed above. Do not evaluate other tactics that are not in the expected list.
 
 Use the traditional metrics as a starting point, but evaluate the QUALITY and EFFECTIVENESS of implementation.
 </evaluation_criteria>
 
-For each expected tactic, provide:
+For each expected tactic (and ONLY the expected tactics), provide:
 - ✅ if well-implemented (8-10/10 quality) with specific evidence
 - ⚠️ if partially implemented (5-7/10 quality) with constructive suggestions
 - ❌ if missing or poorly done (0-4/10 quality) with clear explanation
@@ -513,8 +542,18 @@ Improvement Suggestions: [Advice]
 
 <skills_demonstrated>
 List the specific skills (from Module 2 Skills Checklist) they can check off.
-Format: "- Skill #X: [Description]"
+
+Activity skill mappings:
+- Activity 2.1 (Role Prompting + Structured Inputs): Skills #1-4
+- Activity 2.2 (Few-Shot + Chain-of-Thought): Skills #5-8
+- Activity 2.3 (Reference Citations + Prompt Chaining): Skills #9-12
+- Activity 2.4 (Tree of Thoughts + LLM-as-Judge): Skills #13-16
+
+Based on the activity name and tactics evaluated, list appropriate skill numbers.
+Format: "- Skill #X: [Description that includes the tactic name]"
 Only list skills where the tactic received ✅ (8-10/10) or strong ⚠️ (7/10).
+
+IMPORTANT: For Activity 2.4, use skills #13-16 and mention BOTH Tree of Thoughts AND LLM-as-Judge in the descriptions.
 </skills_demonstrated>
 
 <combined_score>
