@@ -579,20 +579,20 @@ def test_activity_3_1_solution(test_code=None, variables=None):
 # ============================================
 
 def test_connection():
-    """Test connection to AI services."""
+    """Test connection to AI services. Returns (success, response) tuple."""
     print("🔄 Testing connection to GitHub Copilot proxy...")
     test_result = get_chat_completion([
         {"role": "user", "content": "Say 'Connection successful!' if you can read this."}
     ])
-    
+
     if test_result and ("successful" in test_result.lower() or "success" in test_result.lower()):
         print(f"✅ Connection successful! Using {PROVIDER.upper()} provider with model: {get_default_model()}")
         print(f"📝 Response: {test_result}")
-        return True
+        return True, test_result
     else:
         print("⚠️ Connection test completed but response unexpected:")
         print(f"📝 Response: {test_result}")
-        return False
+        return False, test_result
 
 
 # ============================================
