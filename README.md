@@ -52,21 +52,26 @@ cd prompteng-devs
 
 ```bash
 # 1. Clone the repository
-git clone git@github.com:splunk/prompteng-devs.git
+git clone https://github.com/splunk/prompteng-devs.git
 cd prompteng-devs
 
 # 2. Install dependencies
-curl -LsSf https://astral.sh/uv/install.sh | sh
-uv venv .venv --seed
+python -m venv .venv
 source .venv/bin/activate
-uv pip install ipykernel
+pip install ipykernel
+
+# Alternative: Using uv (faster)
+# curl -LsSf https://astral.sh/uv/install.sh | sh
+# uv venv .venv --seed
+# source .venv/bin/activate
+# uv pip install ipykernel
 
 # 3. Configure environment
 cp .env-example .env
 # Edit .env with your API keys
 ```
 
-**Splunk users**: Run `okta-artifactory-login -t pypi` before installing dependencies.
+**Splunk users**: Run `okta-artifactory-login -t pypi` before installing dependencies. See [Artifactory PyPI setup guide](https://cloud-automation.splunkdev.page/ci-cd/artifactory/ephemeral-credentials-examples/user-guide/pypi/) for installation instructions and access to Splunk's internal PyPI packages.
 
 ---
 
@@ -148,9 +153,9 @@ Each module notebook has **two sections** for tracking progress:
 
 ### 1. **Interactive Course** - Learn the fundamentals
 - **[Module 1: Foundations](./01-course/module-01-foundations/)** - Interactive notebook (`.ipynb`) with environment setup & prompt anatomy (20 min)
-- **[Module 2: Core Techniques](./01-course/module-02-fundamentals/)** - Interactive notebook (`.ipynb`) with role prompting, structured inputs, few-shot examples, chain-of-thought reasoning, reference citations, prompt chaining, and evaluation techniques (90-120 min)  
-- **[Module 3: Applications](./01-course/module-03-applications/)** - Interactive notebook (`.ipynb`) with code quality, testing, debugging (30 min)
-- **[Module 4: Integration](./01-course/module-04-integration/)** - Interactive notebook (`.ipynb`) with custom commands & AI assistants (10 min)
+- **[Module 2: Core Techniques](./01-course/module-02-fundamentals/)** - Interactive notebooks (`.ipynb`) covering role prompting, structured inputs, few-shot examples, chain-of-thought reasoning, reference citations, prompt chaining, and evaluation techniques (90-120 min)  
+- **[Module 3: Applications](./01-course/module-03-applications/)** - Interactive notebook (`.ipynb`) with reusable prompt templates for code review, debugging, refactoring, and SDLC workflows (60 min)
+- **[Module 4: Integration](./01-course/module-04-integration/)** - Interactive notebook (`.ipynb`) with custom commands & AI assistants (30 min)
 
 ### 2. **Practice** - Reinforce learning
 - **Hands-on Exercises** - Integrated into each module to reinforce concepts
@@ -169,7 +174,7 @@ Each module notebook has **two sections** for tracking progress:
 - ✅ **Prompt Engineering Toolkit** with reusable patterns and commands  
 - ✅ **Production-Ready Workflows** for code quality, debugging, and API integration
 
-**Total Time**: ~90 minutes (can be split into 3×30min sessions)
+**Total Time**: ~300 minutes (~4-5 hours)
 
 ---
 
